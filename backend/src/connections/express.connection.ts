@@ -15,6 +15,7 @@ import documentRoutes from '../routes/documents.routes';
 import flashcardRoutes from '../routes/flashcards.routes';
 import quizRoutes from '../routes/quizzes.routes';
 import dashboardRoutes from '../routes/dashboard.routes';
+import profileRoutes from '../routes/profile.routes';
 
 import requestExtend from '../interfaces/express/request.extend.interface';
 
@@ -62,6 +63,7 @@ export default class ExpressConnection {
     this.app.use('/api/flashcards', flashcardRoutes);
     this.app.use('/api/quizzes', quizRoutes);
     this.app.use('/api/dashboard', dashboardRoutes);
+    this.app.use('/api/profile', profileRoutes);
     this.app.use((req: Request, res: Response, next: NextFunction) => {
       next(new ExpressError(404, 'Not Found'));
     });

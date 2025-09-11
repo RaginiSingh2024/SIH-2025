@@ -88,7 +88,7 @@ const sizeVariants = [
   {
     props: (props) => props.size === 'medium',
     style: ({ theme }) => ({
-      borderRadius: theme.shape.borderRadius * 1.25,
+      borderRadius: (theme.shape.borderRadius as number) * 1.25,
     }),
   },
 ] satisfies ComponentsVariants<Theme>['MuiChip'];

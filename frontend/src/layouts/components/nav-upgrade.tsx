@@ -6,6 +6,8 @@ import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 
+import { useRouter } from 'src/routes/hooks';
+
 import { Label } from 'src/components/label';
 
 import { useMockedUser } from 'src/auth/hooks';
@@ -14,6 +16,11 @@ import { useMockedUser } from 'src/auth/hooks';
 
 export function NavUpgrade({ sx, ...other }: BoxProps) {
   const { user } = useMockedUser();
+  const router = useRouter();
+
+  const handleVisitProfile = () => {
+    router.push('/app/profile');
+  };
 
   return (
     <Box
@@ -65,9 +72,7 @@ export function NavUpgrade({ sx, ...other }: BoxProps) {
             size="small"
             color="inherit"
             variant="outlined"
-            href="re"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={handleVisitProfile}
           >
             Visit Profile
           </Button>

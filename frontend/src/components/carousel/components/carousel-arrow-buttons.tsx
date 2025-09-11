@@ -136,7 +136,7 @@ const NumberButtonsRoot = styled('div')(({ theme }) => ({
   display: 'inline-flex',
   padding: theme.spacing(0.5),
   color: theme.vars.palette.common.white,
-  borderRadius: theme.shape.borderRadius * 1.25,
+  borderRadius: (theme.shape.borderRadius as number) * 1.25,
   backgroundColor: varAlpha(theme.vars.palette.grey['900Channel'], 0.48),
   [`& .${carouselClasses.arrows.label}`]: {
     ...theme.typography.subtitle2,

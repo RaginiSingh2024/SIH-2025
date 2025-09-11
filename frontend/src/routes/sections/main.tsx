@@ -21,6 +21,7 @@ const Flashcards = lazy(() => import('src/pages/documents/Flashcards'));
 const QuizPage = lazy(() => import('src/pages/documents/QuizPage'));
 const QuizList = lazy(() => import('src/pages/documents/QuizList'));
 const QuizAnsPage = lazy(() => import('src/pages/documents/QuizAnsPage'));
+const Profile = lazy(() => import('src/pages/Profile/Profile'));
 // ----------------------------------------------------------------------
 
 function SuspenseOutlet() {
@@ -44,6 +45,7 @@ export const mainRoutes: RouteObject[] = [
     element: CONFIG.auth.skip ? dashboardLayout() : <AuthGuard>{dashboardLayout()}</AuthGuard>,
     children: [
       { element: <MainDashboard />, index: true },
+      { element: <Profile />, path: 'profile' },
       { element: <MyDocuments />, path: 'documents' },
       { element: <Flashcards />, path: 'flashcards' },
       { element: <QuizList />, path: 'quiz' },

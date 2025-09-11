@@ -22,7 +22,7 @@ const LargeBlockRoot = styled('div')(({ theme }) => ({
   position: 'relative',
   flexDirection: 'column',
   padding: theme.spacing(4, 2, 2, 2),
-  borderRadius: theme.shape.borderRadius * 2,
+  borderRadius: (theme.shape.borderRadius as number) * 2,
   border: `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.12)}`,
 }));
 

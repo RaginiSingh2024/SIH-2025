@@ -39,7 +39,7 @@ const ThumbRoot = styled(ButtonBase, {
   opacity: 0.48,
   flexShrink: 0,
   cursor: 'pointer',
-  borderRadius: theme.shape.borderRadius * 1.25,
+  borderRadius: (theme.shape.borderRadius as number) * 1.25,
   transition: theme.transitions.create(['opacity', 'box-shadow'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.short,

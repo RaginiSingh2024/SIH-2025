@@ -151,7 +151,7 @@ const MuiAvatar: Components<Theme>['MuiAvatar'] = {
       variants: [...colorVariants],
     },
     rounded: ({ theme }) => ({
-      borderRadius: theme.shape.borderRadius * 1.5,
+      borderRadius: (theme.shape.borderRadius as number) * 1.5,
     }),
   },
 };

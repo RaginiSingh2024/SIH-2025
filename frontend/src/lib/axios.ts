@@ -185,3 +185,166 @@ export const dashboardAPI = {
     return response.data.data;
   },
 };
+
+// Profile API
+export const profileAPI = {
+  getProfile: async (): Promise<{ profile: any }> => {
+    const response = await axiosInstance.get('/api/profile');
+    return response.data.data;
+  },
+
+  updateProfile: async (data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put('/api/profile', data);
+    return response.data.data;
+  },
+
+  // Projects
+  addProject: async (data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.post('/api/profile/projects', data);
+    return response.data.data;
+  },
+
+  updateProject: async (projectId: string, data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put(`/api/profile/projects/${projectId}`, data);
+    return response.data.data;
+  },
+
+  deleteProject: async (projectId: string): Promise<{ profile: any }> => {
+    const response = await axiosInstance.delete(`/api/profile/projects/${projectId}`);
+    return response.data.data;
+  },
+
+  // Experience
+  addExperience: async (data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.post('/api/profile/experiences', data);
+    return response.data.data;
+  },
+
+  updateExperience: async (experienceId: string, data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put(`/api/profile/experiences/${experienceId}`, data);
+    return response.data.data;
+  },
+
+  deleteExperience: async (experienceId: string): Promise<{ profile: any }> => {
+    const response = await axiosInstance.delete(`/api/profile/experiences/${experienceId}`);
+    return response.data.data;
+  },
+
+  // Education
+  addEducation: async (data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.post('/api/profile/education', data);
+    return response.data.data;
+  },
+
+  updateEducation: async (educationId: string, data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put(`/api/profile/education/${educationId}`, data);
+    return response.data.data;
+  },
+
+  deleteEducation: async (educationId: string): Promise<{ profile: any }> => {
+    const response = await axiosInstance.delete(`/api/profile/education/${educationId}`);
+    return response.data.data;
+  },
+
+  // Skills
+  addSkill: async (data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.post('/api/profile/skills', data);
+    return response.data.data;
+  },
+
+  updateSkill: async (skillId: string, data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put(`/api/profile/skills/${skillId}`, data);
+    return response.data.data;
+  },
+
+  deleteSkill: async (skillId: string): Promise<{ profile: any }> => {
+    const response = await axiosInstance.delete(`/api/profile/skills/${skillId}`);
+    return response.data.data;
+  },
+
+  // Certificates
+  addCertificate: async (data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.post('/api/profile/certificates', data);
+    return response.data.data;
+  },
+
+  updateCertificate: async (certificateId: string, data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put(`/api/profile/certificates/${certificateId}`, data);
+    return response.data.data;
+  },
+
+  deleteCertificate: async (certificateId: string): Promise<{ profile: any }> => {
+    const response = await axiosInstance.delete(`/api/profile/certificates/${certificateId}`);
+    return response.data.data;
+  },
+
+  // Extracurriculars
+  addExtracurricular: async (data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.post('/api/profile/extracurriculars', data);
+    return response.data.data;
+  },
+
+  updateExtracurricular: async (extracurricularId: string, data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put(`/api/profile/extracurriculars/${extracurricularId}`, data);
+    return response.data.data;
+  },
+
+  deleteExtracurricular: async (extracurricularId: string): Promise<{ profile: any }> => {
+    const response = await axiosInstance.delete(`/api/profile/extracurriculars/${extracurricularId}`);
+    return response.data.data;
+  },
+
+  // Accomplishments
+  addAccomplishment: async (data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.post('/api/profile/accomplishments', data);
+    return response.data.data;
+  },
+
+  updateAccomplishment: async (accomplishmentId: string, data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put(`/api/profile/accomplishments/${accomplishmentId}`, data);
+    return response.data.data;
+  },
+
+  deleteAccomplishment: async (accomplishmentId: string): Promise<{ profile: any }> => {
+    const response = await axiosInstance.delete(`/api/profile/accomplishments/${accomplishmentId}`);
+    return response.data.data;
+  },
+
+  // Training Details
+  addTrainingDetails: async (data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.post('/api/profile/training', data);
+    return response.data.data;
+  },
+
+  updateTrainingDetails: async (trainingId: string, data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put(`/api/profile/training/${trainingId}`, data);
+    return response.data.data;
+  },
+
+  deleteTrainingDetails: async (trainingId: string): Promise<{ profile: any }> => {
+    const response = await axiosInstance.delete(`/api/profile/training/${trainingId}`);
+    return response.data.data;
+  },
+
+  // Social Links
+  addSocialLink: async (data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.post('/api/profile/social-links', data);
+    return response.data.data;
+  },
+
+  updateSocialLink: async (socialLinkId: string, data: any): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put(`/api/profile/social-links/${socialLinkId}`, data);
+    return response.data.data;
+  },
+
+  deleteSocialLink: async (socialLinkId: string): Promise<{ profile: any }> => {
+    const response = await axiosInstance.delete(`/api/profile/social-links/${socialLinkId}`);
+    return response.data.data;
+  },
+
+  // Achievements
+  updateAchievements: async (data: { type: string; increment?: number }): Promise<{ profile: any }> => {
+    const response = await axiosInstance.put('/api/profile/achievements', data);
+    return response.data.data;
+  },
+};

@@ -19,6 +19,7 @@ const ICONS = {
 
 export const _account: AccountDrawerProps['data'] = [
   { label: 'Dashboard', href: paths.main.dashboard, icon: ICONS.dashboard },
+  { label: 'Profile', href: paths.main.profile, icon: ICONS.dashboard },
   { label: 'Documents', href: paths.main.documents, icon: ICONS.file },
   { label: 'Quiz', href: paths.main.quiz, icon: ICONS.blog },
   { label: 'Flashcards', href: paths.main.flashcards, icon: ICONS.blank },

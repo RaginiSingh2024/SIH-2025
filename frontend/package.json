@@ -1,8 +1,8 @@
 {
-  "name": "study_sync",
+  "name": "lms_app",
   "author": "script-beast",
   "version": "1.0.0",
-  "description": "An AI-powered flashcard application to enhance your learning experience.",
+  "description": "An AI-powered Learning Management System to enhance your learning experience.",
   "private": true,
   "type": "module",
   "scripts": {

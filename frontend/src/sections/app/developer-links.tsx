@@ -19,22 +19,22 @@ type Props = CardProps & {
 const list = [
   {
     label: 'GitHub',
-    link: 'https://github.com/script-beast',
+    link: 'https://github.com/anoopg7',
     icon: <Iconify width={32} icon="socials:github" />,
   },
   {
     label: 'Linkedin',
-    link: 'https://www.linkedin.com/in/aprajapati028/',
+    link: 'https://www.linkedin.com/in/itsan00p/',
     icon: <Iconify width={32} icon="socials:linkedin" />,
   },
   {
     label: 'Leetcode',
-    link: 'https://leetcode.com/u/Ankitkp028/',
+    link: '',
     icon: <Iconify width={32} icon="solar:code-bold" />,
   },
   {
     label: 'Google',
-    link: 'mailto:ankitkp0128@gmail.com',
+    link: 'mailto:gupta.anoop2006@gmail.com',
     icon: <Iconify width={32} icon="socials:google" />,
   },
 ];

@@ -48,7 +48,7 @@ export function NavUpgrade({ sx, ...other }: BoxProps) {
             noWrap
             sx={{ mb: 0, color: 'var(--layout-nav-text-primary-color)' }}
           >
-            Ankit Prajapati
+            Built By Ai
           </Typography>
 
           <Typography
@@ -56,35 +56,20 @@ export function NavUpgrade({ sx, ...other }: BoxProps) {
             noWrap
             sx={{ color: 'var(--layout-nav-text-disabled-color)' }}
           >
-            ankitkp028@gmail.com
+            BTech 2nd Year
           </Typography>
-        </Box>
-
-        <Stack
-          spacing={1}
-          direction={{ xs: 'column', sm: 'row' }}
-          alignItems="center"
-          justifyContent="center"
-          width="100%"
-        >
+        </Box>    
+        <Stack spacing={1}>
           <Button
-            variant="soft"
-            color="info"
-            href="https://aprajapati.vercel.app/"
+            fullWidth
+            size="small"
+            color="inherit"
+            variant="outlined"
+            href="re"
             target="_blank"
             rel="noopener noreferrer"
-            fullWidth
           >
-            Visit Me
-          </Button>
-          <Button
-            variant="soft"
-            href="https://aprajapati.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            fullWidth
-          >
-            Let&apos;s go again
+            Visit Profile
           </Button>
         </Stack>
       </Box>

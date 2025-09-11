@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ path: '.env.local' });
 
 import expressConnection from './connections/express.connection';
 import mongooseConnection from './connections/mongo.connection';

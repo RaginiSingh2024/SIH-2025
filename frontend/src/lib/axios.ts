@@ -39,7 +39,7 @@ export default axiosInstance;
 export const authAPI = {
   register: async (data: RegisterForm): Promise<{ token: string }> => {
     const response: AxiosResponse<{ data: AuthResponse }> = await axiosInstance.post(
-      '/auth/register',
+      '/api/auth/register',
       data
     );
     return response.data.data;
@@ -47,14 +47,14 @@ export const authAPI = {
 
   login: async (data: LoginForm): Promise<AuthResponse> => {
     const response: AxiosResponse<{ data: AuthResponse }> = await axiosInstance.post(
-      '/auth/login',
+      '/api/auth/login',
       data
     );
     return response.data.data;
   },
 
   getCurrentUser: async (): Promise<{ user: User }> => {
-    const response = await axiosInstance.get('/auth/me');
+    const response = await axiosInstance.get('/api/auth/me');
     return response.data.data;
   },
 };
@@ -68,7 +68,7 @@ export const documentsAPI = {
     const formData = new FormData();
     data.forEach((file) => formData.append('document', file));
 
-    const response = await axiosInstance.post('/documents/upload', formData, {
+    const response = await axiosInstance.post('/api/documents/upload', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
       onUploadProgress: config?.onUploadProgress,
     });
@@ -76,7 +76,7 @@ export const documentsAPI = {
   },
 
   getAll: async (page = 1, limit = 10): Promise<PaginatedResponse<Document>> => {
-    const response = await axiosInstance.get(`/documents?page=${page}&limit=${limit}`);
+    const response = await axiosInstance.get(`/api/documents?page=${page}&limit=${limit}`);
     return {
       success: response.data.data.success,
       data: response.data.data.documents,
@@ -85,7 +85,7 @@ export const documentsAPI = {
   },
 
   generateFlashcard: async (id: string): Promise<{ message: string }> => {
-    const response = await axiosInstance.get(`/documents/generate/${id}`);
+    const response = await axiosInstance.get(`/api/documents/generate/${id}`);
     return response.data;
   },
 };
@@ -110,7 +110,7 @@ export const flashcardsAPI = {
     if (filters?.tags) params.append('tags', filters.tags);
     if (filters?.difficulty) params.append('difficulty', filters.difficulty);
 
-    const response = await axiosInstance.get(`/flashcards?${params}`);
+    const response = await axiosInstance.get(`/api/flashcards?${params}`);
     return {
       success: response.data.data.success,
       data: response.data.data.flashcards,
@@ -129,7 +129,7 @@ export const quizzesAPI = {
 
     if (documentId) params.append('document', documentId);
 
-    const response = await axiosInstance.get(`/quizzes?${params}`);
+    const response = await axiosInstance.get(`/api/quizzes?${params}`);
     return {
       success: response.data.data.success,
       data: response.data.data.quizzes,
@@ -138,12 +138,12 @@ export const quizzesAPI = {
   },
 
   generateQuiz: async (id: string): Promise<{ quizId: string }> => {
-    const response = await axiosInstance.get(`/quizzes/generate/${id}`);
+    const response = await axiosInstance.get(`/api/quizzes/generate/${id}`);
     return response.data.data;
   },
 
   getById: async (id: string): Promise<{ success: boolean; quiz: Quiz }> => {
-    const response = await axiosInstance.get(`/quizzes/${id}`);
+    const response = await axiosInstance.get(`/api/quizzes/${id}`);
     return response.data.data;
   },
 
@@ -164,7 +164,7 @@ export const quizzesAPI = {
       }>;
     };
   }> => {
-    const response = await axiosInstance.post(`/quizzes/${id}/attempt`, data);
+    const response = await axiosInstance.post(`/api/quizzes/${id}/attempt`, data);
     return response.data;
   },
 
@@ -173,7 +173,7 @@ export const quizzesAPI = {
   ): Promise<{
     quiz: Quiz;
   }> => {
-    const response = await axiosInstance.get(`/quizzes/attempts/${id}`);
+    const response = await axiosInstance.get(`/api/quizzes/attempts/${id}`);
     return response.data.data;
   },
 };
@@ -181,7 +181,7 @@ export const quizzesAPI = {
 // Dashboard API
 export const dashboardAPI = {
   getStats: async (): Promise<dashboardProps> => {
-    const response = await axiosInstance.get('/dashboard/stats');
+    const response = await axiosInstance.get('/api/dashboard/stats');
     return response.data.data;
   },
 };

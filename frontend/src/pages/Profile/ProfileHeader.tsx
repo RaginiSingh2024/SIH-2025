@@ -1,8 +1,15 @@
 import { useState } from 'react';
 
-import { Tooltip } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
-import { Avatar, Box, Button, Stack, Typography } from '@mui/material';
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  Stack,
+  Tooltip,
+  Typography,
+} from '@mui/material';
 
 import EditProfileDialog from './EditProfileDialog';
 
@@ -31,25 +38,24 @@ function ProfileHeader() {
 
   return (
     <>
-      <Box
+      <Card
         sx={{
-          background: 'linear-gradient(135deg, #667eea 0%,',
-          borderRadius: 3,
-          p: 4,
-          color: 'white',
           position: 'relative',
           overflow: 'hidden',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%)',
-            pointerEvents: 'none'
-          }
+          bgcolor: 'background.paper',
+          border: '1px solid',
+          borderColor: 'divider',
+        }}
+      >
+      <Box
+        sx={{
+          p: 4,
+          background: (theme) =>
+            theme.palette.mode === 'light'
+              ? 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)'
+              : 'linear-gradient(135deg, #0d47a1 0%, #1976d2 100%)',
+          color: 'white',
+          position: 'relative',
         }}
       >
         {/* Top section */}
@@ -60,35 +66,38 @@ function ProfileHeader() {
                 width: 80, 
                 height: 80, 
                 fontSize: 32,
-                bgcolor: 'rgba(255,255,255,0.2)',
-                color: 'white',
-                border: '3px solid rgba(255,255,255,0.3)',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
+                bgcolor: 'background.paper',
+                color: 'text.primary',
+                border: '3px solid',
+                borderColor: 'divider',
+                boxShadow: 2
               }}
             >
               {user.initials}
             </Avatar>
             <Box
-              sx={{
+              sx={(theme) => ({
                 position: 'absolute',
                 bottom: -4,
                 right: -4,
                 width: 24,
                 height: 24,
                 borderRadius: '50%',
-                bgcolor: '#4CAF50',
-                border: '2px solid white',
+                bgcolor: 'success.main',
+                border: '2px solid',
+                borderColor: 'background.paper',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
-              }}
+                justifyContent: 'center',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+              })}
             >
               <Box
                 sx={{
                   width: 8,
                   height: 8,
                   borderRadius: '50%',
-                  bgcolor: 'white'
+                  bgcolor: 'common.white'
                 }}
               />
             </Box>
@@ -128,15 +137,18 @@ function ProfileHeader() {
         {/* College */}
         <Typography 
           variant="body2" 
-          sx={{ 
-            opacity: 0.9,
-            bgcolor: 'rgba(255,255,255,0.1)',
+          sx={(theme) => ({ 
+            opacity: 0.95,
+            bgcolor: 'background.paper',
+            color: 'text.primary',
             px: 2,
             py: 1,
             borderRadius: 2,
             mb: 2,
-            fontWeight: 500
-          }}
+            fontWeight: 500,
+            border: '1px solid',
+            borderColor: 'divider'
+          })}
         >
           🎓 {user.college}
         </Typography>
@@ -161,20 +173,23 @@ function ProfileHeader() {
                 variant="contained"
                 startIcon={<LockIcon />}
                 disabled
-                sx={{
-                  bgcolor: 'rgba(255,255,255,0.1)',
-                  color: 'white',
-                  border: '1px solid rgba(255,255,255,0.2)',
+                sx={(theme) => ({
+                  bgcolor: 'action.disabled',
+                  color: 'text.disabled',
+                  border: '1px solid',
+                  borderColor: 'divider',
                   '&:hover': {
-                    bgcolor: 'rgba(255,255,255,0.15)',
+                    bgcolor: 'action.hover',
                   },
                   '&.Mui-disabled': {
-                    color: 'rgba(255,255,255,0.7)',
+                    color: 'text.disabled',
+                    bgcolor: 'action.disabled',
                   },
                   textTransform: 'none',
                   fontWeight: 500,
-                  px: 3
-                }}
+                  px: 3,
+                  backdropFilter: 'blur(10px)'
+                })}
               >
                 Generate Resume
               </Button>
@@ -184,25 +199,28 @@ function ProfileHeader() {
           <Button 
             variant="contained" 
             onClick={() => setOpenEdit(true)}
-            sx={{
-              bgcolor: 'rgba(255,255,255,0.2)',
-              color: 'white',
-              border: '1px solid rgba(255,255,255,0.3)',
+            sx={(theme) => ({
+              bgcolor: 'primary.main',
+              color: 'primary.contrastText',
+              border: '1px solid',
+              borderColor: 'primary.dark',
               textTransform: 'none',
               fontWeight: 600,
               px: 3,
+              backdropFilter: 'blur(10px)',
               '&:hover': {
-                bgcolor: 'rgba(255,255,255,0.3)',
+                bgcolor: 'primary.dark',
                 transform: 'translateY(-1px)',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+                boxShadow: 3
               },
               transition: 'all 0.2s ease'
-            }}
+            })}
           >
             ✏️ Edit Profile
           </Button>
         </Stack>
       </Box>
+    </Card>
 
       {/* Edit Profile Dialog */}
       {openEdit && (

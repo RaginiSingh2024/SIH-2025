@@ -22,6 +22,10 @@ const QuizPage = lazy(() => import('src/pages/documents/QuizPage'));
 const QuizList = lazy(() => import('src/pages/documents/QuizList'));
 const QuizAnsPage = lazy(() => import('src/pages/documents/QuizAnsPage'));
 const Profile = lazy(() => import('src/pages/Profile/Profile'));
+const Chat = lazy(() => import('src/pages/chat/ChatSimple'));
+const Syllabus = lazy(() => import('src/pages/syllabus/Syllabus'));
+const LearningPath = lazy(() => import('src/pages/learning-path/LearningPath'));
+const Counselling = lazy(() => import('src/pages/counselling/Counselling'));
 // ----------------------------------------------------------------------
 
 function SuspenseOutlet() {
@@ -51,6 +55,10 @@ export const mainRoutes: RouteObject[] = [
       { element: <QuizList />, path: 'quiz' },
       { element: <QuizPage />, path: 'quiz/:id' },
       { element: <QuizAnsPage />, path: 'attempt/:id' },
+      { element: <Chat />, path: 'chat' },
+      { element: <Syllabus />, path: 'syllabus' },
+      { element: <LearningPath />, path: 'learning-path' },
+      { element: <Counselling />, path: 'counselling' },
     ],
   },
 ];

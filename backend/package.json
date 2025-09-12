@@ -15,6 +15,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@types/socket.io": "^3.0.1",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
@@ -28,6 +29,7 @@
     "multer": "^2.0.2",
     "pdf-parse": "^1.1.1",
     "pdfkit": "^0.17.1",
+    "socket.io": "^4.8.1",
     "winston": "^3.17.0",
     "zod": "^4.1.1"
   },

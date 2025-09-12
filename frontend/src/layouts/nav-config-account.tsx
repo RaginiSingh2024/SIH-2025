@@ -23,4 +23,8 @@ export const _account: AccountDrawerProps['data'] = [
   { label: 'Documents', href: paths.main.documents, icon: ICONS.file },
   { label: 'Quiz', href: paths.main.quiz, icon: ICONS.blog },
   { label: 'Flashcards', href: paths.main.flashcards, icon: ICONS.blank },
+  { label: 'Syllabus', href: paths.main.syllabus, icon: ICONS.file },
+  { label: 'Learning Path', href: paths.main.learningPath, icon: ICONS.dashboard },
+  { label: 'Counselling', href: paths.main.counselling, icon: ICONS.blog },
+  { label: 'Chat', href: paths.main.chat, icon: ICONS.blog },
 ];

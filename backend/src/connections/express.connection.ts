@@ -1,4 +1,5 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
+import { createServer, Server as HttpServer } from 'http';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
@@ -9,6 +10,7 @@ import rateLimit from 'express-rate-limit';
 
 import ExpressError from '../libs/express/error.libs';
 import ExpressErrorMiddleware from '../middlewares/errorHandle.error';
+import { SocketService } from '../services/socket.service';
 
 import authRoutes from '../routes/auth.routes';
 import documentRoutes from '../routes/documents.routes';
@@ -16,11 +18,14 @@ import flashcardRoutes from '../routes/flashcards.routes';
 import quizRoutes from '../routes/quizzes.routes';
 import dashboardRoutes from '../routes/dashboard.routes';
 import profileRoutes from '../routes/profile.routes';
+import chatRoutes from '../routes/chat.routes';
 
 import requestExtend from '../interfaces/express/request.extend.interface';
 
 export default class ExpressConnection {
   private app: Application;
+  private server: HttpServer;
+  private socketService: SocketService;
   private limiter = rateLimit({
     windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000'), // 15 minutes
     max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100'),
@@ -40,6 +45,8 @@ export default class ExpressConnection {
 
   constructor() {
     this.app = express();
+    this.server = createServer(this.app);
+    this.socketService = new SocketService(this.server);
     this.middlewares();
     this.routes();
   }
@@ -64,6 +71,7 @@ export default class ExpressConnection {
     this.app.use('/api/quizzes', quizRoutes);
     this.app.use('/api/dashboard', dashboardRoutes);
     this.app.use('/api/profile', profileRoutes);
+    this.app.use('/api/chat', chatRoutes);
     this.app.use((req: Request, res: Response, next: NextFunction) => {
       next(new ExpressError(404, 'Not Found'));
     });
@@ -71,8 +79,12 @@ export default class ExpressConnection {
   }
 
   public start(port: number) {
-    this.app.listen(port, () => {
+    this.server.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
+  }
+
+  public getSocketService(): SocketService {
+    return this.socketService;
   }
 }

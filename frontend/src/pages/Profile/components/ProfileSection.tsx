@@ -25,15 +25,22 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
 }) => (
   <Paper 
     variant="outlined"
-    sx={{ 
+    sx={(theme) => ({ 
       p: 3,
       borderRadius: 2,
-      boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+      bgcolor: 'background.paper',
+      borderColor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.200',
+      boxShadow: theme.palette.mode === 'dark' 
+        ? '0 2px 12px rgba(0,0,0,0.2)' 
+        : '0 2px 12px rgba(0,0,0,0.08)',
       '&:hover': {
-        boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
+        borderColor: 'primary.main',
+        boxShadow: theme.palette.mode === 'dark' 
+          ? '0 4px 20px rgba(0,0,0,0.3)' 
+          : '0 4px 20px rgba(0,0,0,0.12)',
       },
-      transition: 'box-shadow 0.3s ease'
-    }}
+      transition: 'all 0.3s ease'
+    })}
   >
     <Stack direction="row" spacing={2} justifyContent="space-between" alignItems="center" mb={3}>
       <Typography 

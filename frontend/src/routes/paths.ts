@@ -23,6 +23,10 @@ export const paths = {
     documents: `${ROOTS.MAIN}/documents`,
     quiz: `${ROOTS.MAIN}/quiz`,
     flashcards: `${ROOTS.MAIN}/flashcards`,
+    chat: `${ROOTS.MAIN}/chat`,
+    syllabus: `${ROOTS.MAIN}/syllabus`,
+    learningPath: `${ROOTS.MAIN}/learning-path`,
+    counselling: `${ROOTS.MAIN}/counselling`,
     settings: `${ROOTS.MAIN}/settings`,
   },
 };

@@ -532,120 +532,156 @@ export const ProfileProvider: React.FC<{ children: React.ReactNode }> = ({ child
     }
   };
 
-  const addExtracurricular = async (data: any) => {
+  const addExtracurricular = (data: any) => {
     try {
-      const result = await profileAPI.addExtracurricular(data);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentExtracurriculars = getFromStorage(EXTRACURRICULARS_STORAGE_KEY) || [];
+      const newExtracurricular = { ...data, id: Date.now().toString() };
+      const updatedExtracurriculars = [...currentExtracurriculars, newExtracurricular];
+      saveToStorage(EXTRACURRICULARS_STORAGE_KEY, updatedExtracurriculars);
+      dispatch({ type: 'SET_EXTRACURRICULARS', payload: updatedExtracurriculars });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to add extracurricular' });
       throw error;
     }
   };
 
-  const updateExtracurricular = async (id: string, data: any) => {
+  const updateExtracurricular = (id: string, data: any) => {
     try {
-      const result = await profileAPI.updateExtracurricular(id, data);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentExtracurriculars = getFromStorage(EXTRACURRICULARS_STORAGE_KEY) || [];
+      const updatedExtracurriculars = currentExtracurriculars.map((ext: any) =>
+        ext.id === id ? { ...ext, ...data } : ext
+      );
+      saveToStorage(EXTRACURRICULARS_STORAGE_KEY, updatedExtracurriculars);
+      dispatch({ type: 'SET_EXTRACURRICULARS', payload: updatedExtracurriculars });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to update extracurricular' });
       throw error;
     }
   };
 
-  const deleteExtracurricular = async (id: string) => {
+  const deleteExtracurricular = (id: string) => {
     try {
-      const result = await profileAPI.deleteExtracurricular(id);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentExtracurriculars = getFromStorage(EXTRACURRICULARS_STORAGE_KEY) || [];
+      const updatedExtracurriculars = currentExtracurriculars.filter((ext: any) => ext.id !== id);
+      saveToStorage(EXTRACURRICULARS_STORAGE_KEY, updatedExtracurriculars);
+      dispatch({ type: 'SET_EXTRACURRICULARS', payload: updatedExtracurriculars });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to delete extracurricular' });
       throw error;
     }
   };
 
-  const addAccomplishment = async (data: any) => {
+  const addAccomplishment = (data: any) => {
     try {
-      const result = await profileAPI.addAccomplishment(data);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentAccomplishments = getFromStorage(ACCOMPLISHMENTS_STORAGE_KEY) || [];
+      const newAccomplishment = { ...data, id: Date.now().toString() };
+      const updatedAccomplishments = [...currentAccomplishments, newAccomplishment];
+      saveToStorage(ACCOMPLISHMENTS_STORAGE_KEY, updatedAccomplishments);
+      dispatch({ type: 'SET_ACCOMPLISHMENTS', payload: updatedAccomplishments });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to add accomplishment' });
       throw error;
     }
   };
 
-  const updateAccomplishment = async (id: string, data: any) => {
+  const updateAccomplishment = (id: string, data: any) => {
     try {
-      const result = await profileAPI.updateAccomplishment(id, data);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentAccomplishments = getFromStorage(ACCOMPLISHMENTS_STORAGE_KEY) || [];
+      const updatedAccomplishments = currentAccomplishments.map((acc: any) =>
+        acc.id === id ? { ...acc, ...data } : acc
+      );
+      saveToStorage(ACCOMPLISHMENTS_STORAGE_KEY, updatedAccomplishments);
+      dispatch({ type: 'SET_ACCOMPLISHMENTS', payload: updatedAccomplishments });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to update accomplishment' });
       throw error;
     }
   };
 
-  const deleteAccomplishment = async (id: string) => {
+  const deleteAccomplishment = (id: string) => {
     try {
-      const result = await profileAPI.deleteAccomplishment(id);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentAccomplishments = getFromStorage(ACCOMPLISHMENTS_STORAGE_KEY) || [];
+      const updatedAccomplishments = currentAccomplishments.filter((acc: any) => acc.id !== id);
+      saveToStorage(ACCOMPLISHMENTS_STORAGE_KEY, updatedAccomplishments);
+      dispatch({ type: 'SET_ACCOMPLISHMENTS', payload: updatedAccomplishments });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to delete accomplishment' });
       throw error;
     }
   };
 
-  const addTrainingDetails = async (data: any) => {
+  const addTrainingDetails = (data: any) => {
     try {
-      const result = await profileAPI.addTrainingDetails(data);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentTraining = getFromStorage(TRAINING_STORAGE_KEY) || [];
+      const newTraining = { ...data, id: Date.now().toString() };
+      const updatedTraining = [...currentTraining, newTraining];
+      saveToStorage(TRAINING_STORAGE_KEY, updatedTraining);
+      dispatch({ type: 'SET_TRAINING', payload: updatedTraining });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to add training details' });
       throw error;
     }
   };
 
-  const updateTrainingDetails = async (id: string, data: any) => {
+  const updateTrainingDetails = (id: string, data: any) => {
     try {
-      const result = await profileAPI.updateTrainingDetails(id, data);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentTraining = getFromStorage(TRAINING_STORAGE_KEY) || [];
+      const updatedTraining = currentTraining.map((training: any) =>
+        training.id === id ? { ...training, ...data } : training
+      );
+      saveToStorage(TRAINING_STORAGE_KEY, updatedTraining);
+      dispatch({ type: 'SET_TRAINING', payload: updatedTraining });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to update training details' });
       throw error;
     }
   };
 
-  const deleteTrainingDetails = async (id: string) => {
+  const deleteTrainingDetails = (id: string) => {
     try {
-      const result = await profileAPI.deleteTrainingDetails(id);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentTraining = getFromStorage(TRAINING_STORAGE_KEY) || [];
+      const updatedTraining = currentTraining.filter((training: any) => training.id !== id);
+      saveToStorage(TRAINING_STORAGE_KEY, updatedTraining);
+      dispatch({ type: 'SET_TRAINING', payload: updatedTraining });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to delete training details' });
       throw error;
     }
   };
 
-  const addSocialLink = async (data: any) => {
+  const addSocialLink = (data: any) => {
     try {
-      const result = await profileAPI.addSocialLink(data);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentSocialLinks = getFromStorage(SOCIAL_LINKS_STORAGE_KEY) || [];
+      const newSocialLink = { ...data, id: Date.now().toString() };
+      const updatedSocialLinks = [...currentSocialLinks, newSocialLink];
+      saveToStorage(SOCIAL_LINKS_STORAGE_KEY, updatedSocialLinks);
+      dispatch({ type: 'SET_SOCIAL_LINKS', payload: updatedSocialLinks });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to add social link' });
       throw error;
     }
   };
 
-  const updateSocialLink = async (id: string, data: any) => {
+  const updateSocialLink = (id: string, data: any) => {
     try {
-      const result = await profileAPI.updateSocialLink(id, data);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentSocialLinks = getFromStorage(SOCIAL_LINKS_STORAGE_KEY) || [];
+      const updatedSocialLinks = currentSocialLinks.map((link: any) =>
+        link.id === id ? { ...link, ...data } : link
+      );
+      saveToStorage(SOCIAL_LINKS_STORAGE_KEY, updatedSocialLinks);
+      dispatch({ type: 'SET_SOCIAL_LINKS', payload: updatedSocialLinks });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to update social link' });
       throw error;
     }
   };
 
-  const deleteSocialLink = async (id: string) => {
+  const deleteSocialLink = (id: string) => {
     try {
-      const result = await profileAPI.deleteSocialLink(id);
-      dispatch({ type: 'SET_PROFILE', payload: result.profile });
+      const currentSocialLinks = getFromStorage(SOCIAL_LINKS_STORAGE_KEY) || [];
+      const updatedSocialLinks = currentSocialLinks.filter((link: any) => link.id !== id);
+      saveToStorage(SOCIAL_LINKS_STORAGE_KEY, updatedSocialLinks);
+      dispatch({ type: 'SET_SOCIAL_LINKS', payload: updatedSocialLinks });
     } catch (error: any) {
       dispatch({ type: 'SET_ERROR', payload: error.message || 'Failed to delete social link' });
       throw error;

@@ -524,7 +524,7 @@ export default function Counselling() {
             <Card sx={{ p: 3, bgcolor: 'primary.50', border: '1px solid', borderColor: 'primary.100' }}>
               <Stack direction="row" alignItems="center" spacing={2}>
                 <Avatar sx={{ bgcolor: 'primary.main', width: 40, height: 40 }}>
-                  <Iconify icon="solar:star-bold" />
+                  <Iconify icon="solar:flag-bold" />
                 </Avatar>
                 <Box>
                   <Typography variant="subtitle1" fontWeight={600}>
@@ -571,7 +571,7 @@ export default function Counselling() {
                 onChange={(e) => setBookingForm({...bookingForm, preferredDate: e.target.value})}
                 InputLabelProps={{ shrink: true }}
                 InputProps={{
-                  startAdornment: <Iconify icon="solar:calendar-bold" sx={{ mr: 1, color: 'text.secondary' }} />
+                  startAdornment: <Iconify icon="solar:calendar-date-bold" sx={{ mr: 1, color: 'text.secondary' }} />
                 }}
               />
 
@@ -597,7 +597,7 @@ export default function Counselling() {
               value={bookingForm.message}
               onChange={(e) => setBookingForm({...bookingForm, message: e.target.value})}
               InputProps={{
-                startAdornment: <Iconify icon="solar:document-text-bold" sx={{ mr: 1, mt: 2, color: 'text.secondary', alignSelf: 'flex-start' }} />
+                startAdornment: <Iconify icon="solar:document-bold" sx={{ mr: 1, mt: 2, color: 'text.secondary', alignSelf: 'flex-start' }} />
               }}
             />
           </Stack>
@@ -615,7 +615,7 @@ export default function Counselling() {
             variant="contained" 
             onClick={handleSubmitBooking}
             size="large"
-            startIcon={<Iconify icon="solar:calendar-add-bold" />}
+            startIcon={<Iconify icon="solar:calendar-date-bold" />}
             sx={{ minWidth: 160 }}
           >
             Book Session
@@ -639,7 +639,7 @@ export default function Counselling() {
         <DialogTitle sx={{ pb: 2 }}>
           <Stack direction="row" alignItems="center" spacing={2}>
             <Avatar sx={{ bgcolor: 'primary.main', width: 40, height: 40 }}>
-              <Iconify icon="solar:calendar-mark-bold" />
+              <Iconify icon="solar:calendar-date-bold" />
             </Avatar>
             <Box>
               <Typography variant="h5" fontWeight={600}>
@@ -662,7 +662,7 @@ export default function Counselling() {
                 mb: 3,
                 color: 'grey.400' 
               }}>
-                <Iconify icon="solar:calendar-minimalistic-bold" width={40} />
+                <Iconify icon="solar:calendar-date-bold" width={40} />
               </Avatar>
               <Typography variant="h6" gutterBottom color="text.secondary">
                 No sessions booked yet
@@ -731,7 +731,7 @@ export default function Counselling() {
                       
                       <Stack direction="row" spacing={3} sx={{ mb: 2 }}>
                         <Stack direction="row" alignItems="center" spacing={1}>
-                          <Iconify icon="solar:calendar-bold" width={16} color="text.secondary" />
+                          <Iconify icon="solar:calendar-date-bold" width={16} color="text.secondary" />
                           <Typography variant="body2" color="text.secondary">
                             {session.scheduledDate}
                           </Typography>

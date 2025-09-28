@@ -118,15 +118,15 @@ npm start
 
 
 # 🤝 Contributors
-# Ragini Singh
+Ragini Singh
 
-# Sneha Hande
+Sneha Hande
 
-# Anoop Gupta
+Anoop Gupta
 
-# Ved
+Ved
 
-# Rehaan Mulani
+Rehaan Mulani
 
 
 # 🏆 Acknowledgmen

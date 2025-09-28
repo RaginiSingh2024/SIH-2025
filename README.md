@@ -82,11 +82,11 @@ We developed an AI-powered interest-based counseling system that provides person
 
 
 # ⚙️ How to Run Locally
-# 1. Clone the repository
+𝟏. 𝐂𝐥𝐨𝐧𝐞 𝐭𝐡𝐞 𝐫𝐞𝐩𝐨𝐬𝐢𝐭𝐨𝐫𝐲
 git clone https://github.com/<RaginiSingh2024>/<SIH-2025>.git
 cd <SIH-2025>
 
-# 2. Install dependencies
+𝟐. 𝐈𝐧𝐬𝐭𝐚𝐥𝐥 𝐝𝐞𝐩𝐞𝐧𝐝𝐞𝐧𝐜𝐢𝐞𝐬
 𝐅𝐨𝐫 𝐟𝐫𝐨𝐧𝐭𝐞𝐧𝐝:
 cd frontend
 npm install
@@ -97,12 +97,12 @@ cd backend
 npm install
 npm start
 
-# 3. Setup MongoDB
+𝟑. 𝐒𝐞𝐭𝐮𝐩 𝐌𝐨𝐧𝐠𝐨𝐃𝐁
 ▪ Use local MongoDB or MongoDB Atlas
 
 ▪ Update connection string in backend .env
 
-# 4. Access the app
+𝟒. 𝐀𝐜𝐜𝐞𝐬𝐬 𝐭𝐡𝐞 𝐚𝐩𝐩
 ▪ Frontend runs at: http://localhost:5173
 
 ▪ Backend runs at: http://localhost:5000
